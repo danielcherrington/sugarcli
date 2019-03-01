@@ -63,13 +63,6 @@ EOF
                 'Force the installer to remove the target directory if present'
             )
             ->addOption(
-                'source',
-                's',
-                InputOption::VALUE_REQUIRED,
-                'Path to SugarCRM installation package',
-                'sugar.zip'
-            )
-            ->addOption(
                 'config',
                 'c',
                 InputOption::VALUE_REQUIRED,
@@ -83,7 +76,7 @@ EOF
         $config_si = $input->getOption('config');
         $installer = new Installer(
             $this->getService('sugarcrm.application'),
-            $input->getOption('source'),
+            null,
             $config_si
         );
         try {
